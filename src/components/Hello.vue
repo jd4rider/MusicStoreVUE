@@ -16,6 +16,7 @@
       <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
+      <li><router-link to="/albums">Go to Albums</router-link></li>
     </ul>
   </div>
 </template>
@@ -31,9 +32,8 @@ export default {
     }
   },
   mounted () {
-    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
     axios
-      .get('http://localhost:53983/api/Customers', { headers: { 'crossDomain': true, 'Content-Type': 'application/json' } })
+      .get('http://localhost:53983/api/Customers', { crossdomain: true })
       .then(response => console.log(response.data))
       .catch(error => console.log(error))
   }
